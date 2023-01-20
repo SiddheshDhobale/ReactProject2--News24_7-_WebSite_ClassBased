@@ -1,25 +1,66 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react'
+import Navbar from './components/Navbar';
+import NewsCard from './components/NewsCard';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  
+} from "react-router-dom";
+import About from './components/About';
+import LoadingBar from 'react-top-loading-bar'
+import Footer from './components/Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+export default class App extends Component {
+  PageSize=8;
+  apiKey="b913efa2e7244bc0ac9ce61fb8fe095f"
+
+
+  state={
+    progress:0 //Setting the initial progress as 0
+  }
+
+  setProgress=(progress)=>{
+    this.setState({progress:progress}); // This arrow function will get the value or progress with state.progress
+  }
+
+  render() {
+    return (
+      <>
+         <div >
+          <Router>
+          <LoadingBar
+            color='#f11946'
+            height={3}
+            progress={this.state.progress}
+            
+          />
+          <Navbar/>
+         
+          
+          {/* <NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="general" pageSize={this.PageSize} country={'in'}  catagory={'sports'} /> */}
+            <Switch>
+              <Route exact path="/"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}   key="general" pageSize={this.PageSize} country={'in'}  catagory={'general'} /></Route> 
+              <Route exact path="/sports"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="sports" pageSize={this.PageSize} country={'in'}  catagory={'sports'} /></Route>
+              <Route exact path="/business"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="business" pageSize={this.PageSize} country={'in'}  catagory={'business'} /></Route>
+              <Route exact path="/entertainment"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="entertainment" pageSize={this.PageSize} country={'in'}  catagory={'entertainment'} /></Route>
+              <Route exact path="/science"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="science" pageSize={this.PageSize} country={'in'}  catagory={'science'} /></Route>
+              <Route exact path="/health"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="health" pageSize={this.PageSize} country={'in'}  catagory={'health'} /></Route>
+              <Route exact path="/technology"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="technology" pageSize={this.PageSize} country={'in'}  catagory={'technology'} /></Route>
+              <Route exact path="/about"><About catagory={'About'}/></Route>
+
+              {/* <Route exact path="/about"><NewsCard setProgress={this.setProgress} apiKey={this.apiKey}  key="about" pageSize={this.PageSize} country={'in'}  catagory={'general'} /></Route> */}
+            </Switch>
+            {/* <Footer/> */}
+          </Router>
+          <Footer/>
+        </div>
+       
+      </>
+      
+    )
+  }
 }
-
-export default App;

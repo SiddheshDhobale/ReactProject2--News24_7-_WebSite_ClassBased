@@ -1,4 +1,6 @@
-.App {
+ @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +37,58 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.bg-primary {
+  background-color: #302521!important;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar-dark .navbar-brand {
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  font-family: 'Cinzel', serif;
+}
+.me-auto {
+ 
+  /* margin-left: 500px; */
+  float:left;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255 255 255 );
+  
+}
+.btn{
+  color:aliceblue;
+  border: 1px solid white;
+}
+.btn:hover{
+  background-color: aliceblue;
+  color: black;
+}
+.btn-primary {
+  background-color: #302521;
+}
+.btn-primary:disabled {
+ 
+  background-color: #64463b;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #302521;
+  border-color: #0a58ca;
+  box-shadow: 0 0 0 0.25rem rgb(49 132 253 / 50%);
+}
+.aboutHeading{
+font-family: 'Cinzel', serif;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #251616;
+  text-decoration: none;
 }
